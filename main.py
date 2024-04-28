@@ -2,6 +2,7 @@ import menu
 
 global hero
 global day
+global game_map
 
 def main():
     menu.main_menu()

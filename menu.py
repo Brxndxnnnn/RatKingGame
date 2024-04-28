@@ -6,7 +6,7 @@ def main_menu():
     print("Welcome to Ratventure!")
     print("----------------------")
     print("1) New Game \n2) Resume Game \n3) View Leaderboard \n4) Exit Game")
-    choice = int(input("Enter choice :"))
+    choice = int(input("\nEnter choice :"))
 
     if choice == 1 : # If user choose New game, display Town Menu and initialize new Hero
         menu_functions.initialize_new_game()
@@ -30,9 +30,8 @@ def town_menu():
         menu_functions.statistics()
         town_menu()
     elif choice == 2 :
-        print()
-        printMap()
-        town_text()
+        menu_functions.show_map()
+        town_menu()
     elif choice == 3 :
         printMap()
         movement()
