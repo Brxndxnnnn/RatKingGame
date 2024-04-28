@@ -28,21 +28,18 @@ def town_menu():
     choice = int(input("Enter choice:"))
     if choice == 1 : 
         menu_functions.statistics()
-        town_menu()
     elif choice == 2 :
         menu_functions.show_map()
-        town_menu()
     elif choice == 3 :
         printMap()
         movement()
     elif choice == 4 :
-        print()
-        rest()
+        menu_functions.rest()
     elif choice == 5 :
         savingGame()
         print("Game saved successfully!")
         print()
         town_text()
     elif choice == 6 :
-        print()
-        sys.exit("See you next time!")
+        sys.exit("\nSee you next time!")
+    town_menu()

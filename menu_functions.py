@@ -40,3 +40,11 @@ def show_map() : #Prints the world map
     print()
     print("+---+---+---+---+---+---+---+---+")
     print()
+
+
+#Resting in town
+def rest() :
+    print("\nAs you jumped on the inn's bed, you slowly closed your eyes...")
+    print("The sun is out and is a new day, you are fully healed to 20 HP!")
+    main.hero.health = 20 #Set hero hp to 20 after healing
+    main.day += 1
