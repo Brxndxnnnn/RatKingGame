@@ -37,11 +37,15 @@ def show_map(): #Prints the world map
         print("\n+---+---+---+---+---+---+---+---+")
         print("|", end="")
         for col in range(len(main.game_map[row])) :
+            # Print "H" if matches the current hero_pos coordinate
             if (col, row) == main.hero_position:
+                # If Hero is in Town, print "H/T"
                 if main.game_map[row][col].upper() == "T":
                     print("{:^3}".format("H/T"),end = "")
+                # Else just print "H"
                 else:
                     print("{:^3}".format("H"),end = "")
+            # Else just print as per normal
             else:
                 print("{:^3}".format(main.game_map[row][col]),end = "")
             print("|", end="")
