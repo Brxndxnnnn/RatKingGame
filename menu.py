@@ -26,21 +26,21 @@ def town_menu():
     print("Day {} : You are in a town.".format(main.day))
     print("1) View Character \n2) View Map \n3) Move \n4) Rest \n5) Save Game \n6) Exit Game")
     choice = int(input("Enter choice:"))
-    if choice == 1 : 
+    if choice == 1 :  # See current hero stats 
         menu_functions.statistics()
-    elif choice == 2 :
+    elif choice == 2 :  # See the map
         menu_functions.show_map()
-    elif choice == 3 :
+    elif choice == 3 :  # Prints the map and prompt for movement
         # printMap()
         # movement()
         pass
-    elif choice == 4 :
+    elif choice == 4 :  # Rest in respective town
         menu_functions.rest()
-    elif choice == 5 :
+    elif choice == 5 :  # Save the game
         # savingGame()
         print("Game saved successfully!")
         print()
         # town_text()
-    elif choice == 6 :
+    elif choice == 6 :  # Quit the game
         sys.exit("\nSee you next time!")
     town_menu()
