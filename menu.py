@@ -31,15 +31,16 @@ def town_menu():
     elif choice == 2 :
         menu_functions.show_map()
     elif choice == 3 :
-        printMap()
-        movement()
+        # printMap()
+        # movement()
+        pass
     elif choice == 4 :
         menu_functions.rest()
     elif choice == 5 :
-        savingGame()
+        # savingGame()
         print("Game saved successfully!")
         print()
-        town_text()
+        # town_text()
     elif choice == 6 :
         sys.exit("\nSee you next time!")
     town_menu()
