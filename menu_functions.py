@@ -7,7 +7,7 @@ def initialize_new_game():
     main.day = 1
     main.hero = hero.Hero(hero_name)
     main.hero_position = (0,0)  # Based on (x,y) coordinates
-    main.game_map = [['H/T', ' ', ' ', ' ', ' ', ' ', ' ', ' '],\
+    main.game_map = [['T', ' ', ' ', ' ', ' ', ' ', ' ', ' '],\
              [' ', ' ', ' ', 'T', ' ', ' ', ' ', ' '],\
              [' ', ' ', ' ', ' ', ' ', 'T', ' ', ' '],\
              [' ', 'T', ' ', ' ', ' ', ' ', ' ', ' '],\
@@ -37,7 +37,13 @@ def show_map(): #Prints the world map
         print("\n+---+---+---+---+---+---+---+---+")
         print("|", end="")
         for col in range(len(main.game_map[row])) :
-            print("{:^3}".format(main.game_map[row][col]),end = "")
+            if (col, row) == main.hero_position:
+                if main.game_map[row][col].upper() == "T":
+                    print("{:^3}".format("H/T"),end = "")
+                else:
+                    print("{:^3}".format("H"),end = "")
+            else:
+                print("{:^3}".format(main.game_map[row][col]),end = "")
             print("|", end="")
     print()
     print("+---+---+---+---+---+---+---+---+")
