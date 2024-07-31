@@ -1,6 +1,7 @@
 import menu
 
 global hero
+global hero_position
 global day
 global game_map
 

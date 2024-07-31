@@ -6,6 +6,7 @@ def initialize_new_game():
     hero_name = str(input("Enter a name for your hero!:"))
     main.day = 1
     main.hero = hero.Hero(hero_name)
+    main.hero_position = (0,0)  # Based on (x,y) coordinates
     main.game_map = [['H/T', ' ', ' ', ' ', ' ', ' ', ' ', ' '],\
              [' ', ' ', ' ', 'T', ' ', ' ', ' ', ' '],\
              [' ', ' ', ' ', ' ', ' ', 'T', ' ', ' '],\
@@ -26,8 +27,9 @@ def statistics():
     #     print("You are holding the Orb of Power")
 
 
-#MAP FUNCTIONS#
-def show_map() : #Prints the world map
+### MAP FUNCTIONS ###
+
+def show_map(): #Prints the world map
     
     print("\n  ====== WORLD MAP ======  ")
     print("H - HERO | T - TOWN \ K - RATKING")
@@ -40,6 +42,14 @@ def show_map() : #Prints the world map
     print()
     print("+---+---+---+---+---+---+---+---+")
     print()
+
+
+def move():
+    print("W = Up; S = Down; A = Left; D = Right")
+    movement_input = input("Where do you want to move? :")
+
+
+### END OF MAP FUNCTIONS ###
 
 
 #Resting in town

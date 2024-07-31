@@ -31,8 +31,8 @@ def town_menu():
     elif choice == 2 :  # See the map
         menu_functions.show_map()
     elif choice == 3 :  # Prints the map and prompt for movement
-        # printMap()
-        # movement()
+        menu_functions.show_map()
+        menu_functions.move()
         pass
     elif choice == 4 :  # Rest in respective town
         menu_functions.rest()
@@ -43,4 +43,5 @@ def town_menu():
         # town_text()
     elif choice == 6 :  # Quit the game
         sys.exit("\nSee you next time!")
+            
     town_menu()
