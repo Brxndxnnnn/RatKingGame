@@ -33,7 +33,6 @@ def town_menu():
     elif choice == 3 :  # Prints the map and prompt for movement
         menu_functions.show_map()
         menu_functions.move()
-        pass
     elif choice == 4 :  # Rest in respective town
         menu_functions.rest()
     elif choice == 5 :  # Save the game

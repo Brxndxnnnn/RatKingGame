@@ -33,21 +33,21 @@ def show_map(): #Prints the world map
     
     print("\n  ====== WORLD MAP ======  ")
     print("H - HERO | T - TOWN \ K - RATKING")
-    for row in range(len(main.game_map)):
+    for y in range(len(main.game_map)):
         print("\n+---+---+---+---+---+---+---+---+")
         print("|", end="")
-        for col in range(len(main.game_map[row])) :
+        for x in range(len(main.game_map[y])) :
             # Print "H" if matches the current hero_pos coordinate
-            if (col, row) == main.hero_position:
+            if (x, y) == main.hero_position:
                 # If Hero is in Town, print "H/T"
-                if main.game_map[row][col].upper() == "T":
+                if main.game_map[y][x].upper() == "T":
                     print("{:^3}".format("H/T"),end = "")
                 # Else just print "H"
                 else:
                     print("{:^3}".format("H"),end = "")
             # Else just print as per normal
             else:
-                print("{:^3}".format(main.game_map[row][col]),end = "")
+                print("{:^3}".format(main.game_map[y][x]),end = "")
             print("|", end="")
     print()
     print("+---+---+---+---+---+---+---+---+")
@@ -55,9 +55,54 @@ def show_map(): #Prints the world map
 
 
 def move():
-    print("W = Up; S = Down; A = Left; D = Right")
+    print("W = Up; S = Down; A = Left; D = Right; X = Back")
     movement_input = input("Where do you want to move? :")
 
+    ### NEED TO ENSURE X AND Y COORDINATE IS NOT 0 if they try to exceed the map size
+
+    hero_x_coordinate = main.hero_position[0]
+    hero_y_coordinate = main.hero_position[1]
+
+    if is_valid_move(movement_input, hero_x_coordinate, hero_y_coordinate):
+        # If user wants to go up
+        if movement_input.upper() == "W":
+            hero_y_coordinate -= 1
+        # If user wants to go left
+        elif movement_input.upper() == "A":
+            hero_x_coordinate -= 1
+        # If user wants to go down
+        elif movement_input.upper() == "S":
+            hero_y_coordinate += 1
+        # If user wants to go right
+        elif movement_input.upper() == "D":
+            hero_x_coordinate += 1
+        
+        # Update the final hero coordinates
+        main.hero_position = (hero_x_coordinate, hero_y_coordinate)
+
+    else:
+        print("Invalid move! You can't go out of the map!")
+
+
+def is_valid_move(movement_input, hero_x, hero_y):
+
+    # Cant go UP any further
+    if movement_input.upper() == "W" and hero_y == 0:
+        return False
+    
+    # Cant go LEFT any further
+    elif movement_input.upper() == "A" and hero_x == 0:
+        return False
+    
+    # Cant go DOWN any further
+    elif movement_input.upper() == "S" and hero_y == 7: #! TODO: MAKE THIS DYNAMIC
+        return False
+    
+    # Cant go RIGHT any further
+    elif movement_input.upper() == "D" and hero_x == 7: #! TODO MAKE THIS DYNAMIC
+        return False
+    
+    return True
 
 ### END OF MAP FUNCTIONS ###
 
